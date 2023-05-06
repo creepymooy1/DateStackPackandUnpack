@@ -14,8 +14,13 @@ Note that this code assumes that the month, day, and year values are valid and w
 Registers used in the code:
 
 EAX: Used to hold month, day, and year values in packDate procedure, packed date value in unpackDate procedure, and to return values from procedures.
+
 EBX: Used to hold day value in unpackDate procedure.
+
 ECX: Used to hold month value in unpackDate procedure.
+
 EDI: Pointer to dateComponents array in unpackDate procedure.
+
 EBP: Base pointer register used to access function arguments and local variables on the stack.
+
 ESP: Stack pointer register that points to the top of the stack.

@@ -1,26 +1,39 @@
 # DateStackPackandUnpack
-80x86 MASM program to handle packing and unpacking date data in the form of mm/dd/yyyy
 
-This code demonstrates how to pack and unpack date data using the stack in 80x86 Assembly (MASM Syntax).
+This 80x86 MASM program demonstrates how to handle packing and unpacking date data in the form of mm/dd/yyyy. It utilizes the stack for storing and retrieving the packed/unpacked date values.
 
-The packDate procedure takes in the month, day, and year as arguments and packs them into a single 32-bit value. The resulting value is then returned and can be stored in memory or used in further computations.
+## PackDate Procedure
 
-The unpackDate procedure takes in the packed date as an argument and unpacks it into its respective month, day, and year components. The unpacked values are then stored in an array passed as an argument.
+The `PackDate` procedure takes the month, day, and year as arguments and packs them into a single 32-bit value. The packed date value is then returned and can be stored in memory or used for further computations.
 
-The main program allocates an array on the stack for the unpacked date components, calls packDate with immediate arguments, saves the result, calls unpackDate with the packed date and the address of the dateComponents array, and then prints the unpacked date. Finally, the program deallocates the dateComponents array and exits.
+## UnpackDate Procedure
 
-Note that this code assumes that the month, day, and year values are valid and within the appropriate range.
+The `UnpackDate` procedure takes the packed date as an argument and unpacks it into its respective month, day, and year components. The unpacked values are stored in an array passed as an argument.
 
-Registers used in the code:
+## Main Program
 
-EAX: Used to hold month, day, and year values in packDate procedure, packed date value in unpackDate procedure, and to return values from procedures.
+The main program performs the following steps:
 
-EBX: Used to hold day value in unpackDate procedure.
+1. Allocates an array on the stack to store the unpacked date components.
+2. Calls `PackDate` with immediate arguments and saves the result.
+3. Calls `UnpackDate` with the packed date and the address of the dateComponents array.
+4. Prints the unpacked date using the dateComponents array.
+5. Deallocates the dateComponents array.
+6. Exits the program.
 
-ECX: Used to hold month value in unpackDate procedure.
+## Usage
 
-EDI: Pointer to dateComponents array in unpackDate procedure.
+To run the program, assemble and link it using an appropriate MASM-compatible assembler and linker. Execute the resulting executable file to see the output displaying the packed and unpacked date values.
 
-EBP: Base pointer register used to access function arguments and local variables on the stack.
+Please note that this code assumes that the month, day, and year values are valid and within the appropriate range.
 
-ESP: Stack pointer register that points to the top of the stack.
+## Registers Used
+
+The following registers are used in the code:
+
+- `EAX`: Used to hold month, day, and year values in `PackDate` procedure, packed date value in `UnpackDate` procedure, and to return values from procedures.
+- `EBX`: Used to hold day value in `UnpackDate` procedure.
+- `ECX`: Used to hold month value in `UnpackDate` procedure.
+- `EDI`: Pointer to the `dateComponents` array in `UnpackDate` procedure.
+- `EBP`: Base pointer register used to access function arguments and local variables on the stack.
+- `ESP`: Stack pointer register that points to the top of the stack.
